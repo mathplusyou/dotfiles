@@ -1,17 +1,39 @@
-colorscheme dracula
 
 " Must have
 set nocompatible
 
+" shows matching tabs
+set showmatch
+
 " Disable Bell (For my sanity)
 set noeb vb t_vb=
+ 
+colorscheme nord
 
-" Use pathogen to manage vim plugins
-call pathogen#infect()
-call pathogen#helptags()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
+Plug 'preservim/nerdtree'
+Plug 'hashivim/vim-terraform'
+call plug#end()
+
+" Pathogen (can't get vim-terraform to work with bundle
+
+execute pathogen#infect()
 
 " Syntax Toggle
 syntax on
+
+" map NERDTree to ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
+" 24 bit color
+set termguicolors
 
 " Enable plugins
 filetype plugin indent on
@@ -20,6 +42,9 @@ filetype plugin indent on
 set pastetoggle=<F2>
 set backspace=indent,eol,start
 set softtabstop=2 shiftwidth=2 expandtab
+
+" 80  character num
+set colorcolumn=80
 
 " Move netrw to home dir
 let g:netrw_home=$HOME
@@ -41,7 +66,7 @@ let g:terraform_align=1
 map <C-n> :NERDTreeToggle<CR>
 
 " Toggle Column limit warning
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=105
 function! <SID>CheckLineWidth()
   if !exists('w:checkline_enabled')
     let w:checkline_enabled = matchadd('ColorColumn', '\%>121v.\+', 100)
@@ -119,4 +144,3 @@ endfunction
 nnoremap <silent> <F8> :call <SID>fmt()<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <silent> <F7> :call <SID>CheckSpelling()<CR>
-

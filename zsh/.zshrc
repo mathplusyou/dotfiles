@@ -1,16 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 
 #Path to your oh-my-zsh installation.
-export ZSH="/Users/matthewramirez/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
+# Setting PATHS
 export GOPATH=$HOME/go
-export PATH=$HOME/bin:$HOME/go/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/go/bin:/usr/local/bin:/usr/local/go/bin:$PATH
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -76,7 +77,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -89,6 +89,9 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+# kubectx settings
+export KUBECTX_CURRENT_FGCOLOR=$(tput setaf 6) # blue text
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -100,3 +103,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/matthewramirez/stow/gcloud_280.0.0/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matthewramirez/stow/gcloud_280.0.0/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/matthewramirez/stow/gcloud_280.0.0/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matthewramirez/stow/gcloud_280.0.0/bin/google-cloud-sdk/completion.zsh.inc'; fi

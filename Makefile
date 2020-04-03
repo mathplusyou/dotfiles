@@ -10,6 +10,3 @@ stow: $(HOME)/bin
 
 unstow:
 		$(foreach pkg, $(PKGS), $(STOW) -D $(pkg);)
-
-submodules:
-		git submodule update --init
