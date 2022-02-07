@@ -1,0 +1,5 @@
+require "mathplusyou.options"
+require "mathplusyou.keymaps"
+require "mathplusyou.plugins"
+require "mathplusyou.lsp"
+require "mathplusyou.colorscheme"
