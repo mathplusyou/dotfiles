@@ -1,5 +1,12 @@
-require "mathplusyou.options"
-require "mathplusyou.keymaps"
-require "mathplusyou.plugins"
-require "mathplusyou.lsp"
-require "mathplusyou.colorscheme"
+require("plugins")
+require("options")
+require("statusline")
+require("keymaps")
+require("autocmds")
+
+require("plugins.tokyonight")
+require("plugins.treesitter")
+require("plugins.telescope")
+require("plugins.lsp")
+require("plugins.cmp")
+require("plugins.nvim-tree")
