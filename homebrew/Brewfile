@@ -1,0 +1,38 @@
+# Homebrew Bundle file
+# Install with:
+#   brew bundle --file=~/dotfiles/Brewfile
+#
+# - Keeping Homebrew focused on system packages/apps.
+# - Use pyenv/nvm for exact runtime version pinning.
+
+# Core CLI tools
+brew "git"
+brew "curl"
+brew "wget"
+brew "gh"
+brew "jq"
+brew "yq"
+brew "ripgrep"
+brew "fd"
+brew "fzf"
+brew "tree"
+brew "stow"
+
+# Editors / terminal tooling
+brew "neovim"
+brew "tmux"
+
+# Shell / prompt
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# Search 
+brew "watch"
+brew "gnu-sed"
+
+# GUI apps
+cask "font-hack-nerd-font"
+
+# Cloud
+
+brew "awscli"
